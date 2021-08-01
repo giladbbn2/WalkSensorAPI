@@ -149,7 +149,7 @@ For our best candidates we will have to do load testing or at least get estimate
 
 Based on the exercise I was given our datapoints are in a time-series and immutable. Our data is not relational in nature.
 Because we need to fetch the datapoints sorted by distance and NOT by datetime, we need to define an index.
-The fact that our data is in a time-series reduced the relational DBs, which can't operate on billions of records anyway.
+The fact that our data is in a time-series removed relational DBs from the plate, which can't operate on billions of records anyway.
 
 Possible candidates were: mongodb, sqlite, aws s3 athena, aws s3 select, presto on aws s3.
 
