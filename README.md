@@ -43,7 +43,7 @@ use a public-private key scheme for both as well.
 
 __Testing:__
 
-For the purppose of testing a fresh vm with ubuntu 20.04 was created, for which ufw was 
+For the purpose of testing a fresh vm with ubuntu 20.04 was created, for which ufw was 
 disabled. docker was installed using the convenience script here:
 https://get.docker.com/
 docker compose:
