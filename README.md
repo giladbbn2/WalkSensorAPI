@@ -34,7 +34,7 @@ For this task I assume the IoT device sends the data directly to the server.
 
 I assume each IoT hardware is hardcoded with two random 128 bits. One is the device_id
 and the second is the device_secret. Both known to the server. The security model
-doesn't encrypt the transmitted data but only enabled authentication of the sending
+doesn't encrypt the transmitted data but only enables authentication of the sending
 party by means of md5 hmac.
 It is possible to use a symmetric encryption (e.g. AES256) for both encryption of the
 transmitted data and for authentication of the sender. It is also possible to
