@@ -56,3 +56,101 @@ to connect to the db server (listening on {IP}:27017) and set up a new DB with t
 "WalkSensor" with a collection called "sensor".
 
 For testing purposes a simple html page is served at http://{IP}
+
+
+## DB Research Question:
+
+Choosing the right DB (or databases, in plural) is one of the biggest architectural concerns, 
+especially when creating a new system from the ground up. It requires an in-depth analysis of 
+the product demands and the technological requirements as well as a deep understanding in
+various database systems.
+
+I made a list of every aspect important for me with regard to selecting a DB and divided it into three:
+
+__Capabilities and restrictions:__
+
+1. Indexing mechanism - which algorithms are supported and which are not (b-tree, lucene, r-tree)? do
+the indexes allow intersections? what are the restrictions of these indexes?
+
+2. Data structures - relational tables (sql-like), key-value (redis, memcache), sets and sorted sets (redis),
+graph relationships (neo4j).
+
+3. Optimal storage media - redis (ram), redis on flash (ram + ssd), sql-like (ram + ssd + hdd), presto (object)
+
+4. General purpose, versatility - suitable for OLTP, OLAP or both? time-series AND relational?
+
+5. Optimal for time-series - fast data ingest, compression, benefits from immutability
+
+6. Optimal with regard to infinite cardinality
+
+7. Distribution solution type: master-slave with failover, master-master, sharded
+
+8. Ease of deployment - adding another replica or shard, when necessary
+
+9. Ease of migration and backup
+
+10. Allows partitioning
+
+11. Consistency model: ACID vs BASE
+
+12. Concurrent connections to db restrictions
+
+13. Stability - tendancy to shutdown, error on startup, data corruption 
+
+__Community:__
+
+1. Battle tested - case studies of big companies
+
+2. Large and active community - more info online
+
+3. Hiring force - how well-known within the developers community
+
+4. Being actively developed and having a future roadmap
+
+__Extendibility:__
+
+1. Ease of deployment in Kubernetes
+
+2. Has working IDE
+
+3. Affinity to ML tools
+
+4. High Availability out-of-the-box tools for scaling, replication, sharding and routing
+
+5. Available as a managed solution on major cloud providers (at what cost?)
+
+6. Connectors maturity and connection pooling
+
+7. Learning curve steepness
+
+8. Strictness of data structure - documents vs sql tables
+
+
+In order to choose wisely we have to ask a lot of questions like:
+1. How many clients will request our servers? Get estimated rates
+2. Are we legally obligated to use a cloud provider? Data ingress/outgress has additional costs.
+3. Do we have a budget for a managed db solution? What is the risk? what is the SLA?
+4. Can we project the increase in the amount of IoT devices over time?
+5. Are the requests governed by seasonality? how often would there be high peaks in rps?
+6. What is the estimated size of data accumulated per year (in GB)?
+7. Will our clients be satisfied with a response of several seconds or should the response be immediate?
+8. Is the data mostly immutable?
+9. Can we define the frequent questions our clients will ask in order to provide a better performing algorithm?
+For instance, we can save aggregations of highly-granular time ranges (weeks, months). i.e. should we save datapoints on S3 or on MongoDB?
+
+For our best candidates we will have to do load testing or at least get estimates for:
+1. minimum cpu/ram requirements
+2. max insert rate
+3. concurrency cpu load
+4. max concurrent connections
+5. read/write time with and without index (when db is very much full)
+6. aggregation performance
+
+Based on the exercise I was given our datapoints are in a time-series and immutable. Our data is not relational in nature.
+Because we need to fetch the datapoints sorted by distance and NOT by datetime, we need to define an index.
+A well-known, with a very large community DB capable of holding vast amounts of records is MongoDB, which also has an out-of-the-box sharding and replication mechanisms.
+It is also provided as a managed solution on major cloud providers and it is rising in popularity, so it won't become obselete any time soon.
+Benchmarks show it is very fast for inserts compared with sql-like solutions, but they also state MongoDB is not very fast for reads when compared to other solutions.
+For the sole purpose of this exercise MongoDB was chosen as a good DB solution, but in reality I would load test myself and won't rely only on benchmarks.
+Moreover, I will understand the product demands in much more detail (like the questions I wrote above) and come up with several candidates that I would test myself.
+Then, after taking into account all aspects written above (capabilities and restrictions, community, extendibility), I will be able to suggest the best candidate suited for our needs.
