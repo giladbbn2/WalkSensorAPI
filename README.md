@@ -151,7 +151,7 @@ Based on the exercise I was given our datapoints are in a time-series and immuta
 Because we need to fetch the datapoints sorted by distance and NOT by datetime, we need to define an index.
 The fact that our data is in a time-series removed relational DBs from the plate, which can't operate on billions of records anyway.
 
-Possible candidates were: mongodb, sqlite, aws s3 athena, aws s3 select, presto on aws s3.
+Possible candidates are: mongodb, sqlite, aws s3 athena, aws s3 select, presto on aws s3.
 
 Less popular candidates: mysql ndb, riak, druid, influxdb, aiven
 
