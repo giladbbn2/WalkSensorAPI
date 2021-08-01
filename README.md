@@ -136,7 +136,7 @@ In order to choose wisely we have to ask a lot of questions like:
 7. Will our clients be satisfied with a response of several seconds or should the response be immediate?
 8. Is the data mostly immutable?
 9. Can we define the frequent questions our clients will ask in order to provide a better performing algorithm?
-For instance, we can save aggregations of highly-granular time ranges (weeks, months). i.e. should we save datapoints on S3 or on MongoDB?
+For instance, we can save aggregations of highly-granular time ranges (weeks, months). i.e. should we save datapoints to S3 or to MongoDB?
 
 For our best candidates we will have to do load testing or at least get estimates for:
 1. minimum cpu/ram requirements
