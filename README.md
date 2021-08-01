@@ -145,6 +145,7 @@ For our best candidates we will have to do load testing or at least get estimate
 4. max concurrent connections
 5. read/write time with and without index (when db is very much full)
 6. aggregation performance
+7. sharding and backup difficulty
 
 Based on the exercise I was given our datapoints are in a time-series and immutable. Our data is not relational in nature.
 Because we need to fetch the datapoints sorted by distance and NOT by datetime, we need to define an index.
