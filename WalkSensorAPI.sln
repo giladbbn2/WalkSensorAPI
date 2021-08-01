@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalkSensorAPI", "WalkSensorAPI.csproj", "{43A8E9D2-CC38-49B6-B310-11308A1B1159}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43A8E9D2-CC38-49B6-B310-11308A1B1159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43A8E9D2-CC38-49B6-B310-11308A1B1159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43A8E9D2-CC38-49B6-B310-11308A1B1159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43A8E9D2-CC38-49B6-B310-11308A1B1159}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1C98A25-0868-4869-80E0-514EB76037E6}
+	EndGlobalSection
+EndGlobal

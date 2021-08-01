@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>WalkSensorApi test page</title>
+
+    <script src="md5.js"></script>
+
+</head>
+<body>
+
+    <input type="button" value="Send Datapoints" onclick="sendDatapoints()" />
+    <br /><br />
+    <input type="button" value="Fetch" onclick="fetch()" />
+    <br /><br />
+    <input type="button" value="Clean Results" onclick="document.getElementById('results').innerHTML = '';"/>
+    <br /><br />
+    <h3>Results</h3>
+    <textarea id="results" style="width:1000px;height:500px"></textarea>
+
+    <script>
+
+        function generateRand128bit() {
+
+            // guid
+
+            return md5(Math.random().toString() + "|asfjashf@#$@#$sdfh123123");
+
+        }
+
+        function sendDatapoints() {
+
+            // this value might be hardcoded into the device
+            var deviceSecret = "a2bc1d3992300943a42181cbe814744c";
+
+            var currentUts = new Date().getTime();
+            var endUts = currentUts + 1000;
+
+            var salt = generateRand128bit();
+
+            var o = {
+                device_id: "541f284102554d1897bbe4ac60fc1d84",
+                datapoints: [{
+                    start_uts: currentUts,                  // milliseconds
+                    end_uts: endUts,                        // milliseconds
+                    distance: parseInt(Math.random() * 100)
+                }],
+                message_uts: parseInt(currentUts / 1000),   // seconds
+                hmacmd5_digest: "",
+                hmacmd5_salt: ""
+            };
+
+            var json = JSON.stringify(o);
+
+            var hash = md5(json + "|" + deviceSecret + "|" + salt);
+
+            o.hmacmd5_digest = hash;
+            o.hmacmd5_salt = salt;
+
+            var http = new XMLHttpRequest();
+
+            var url = location.origin + "/api/walk/collect";
+
+            var payload = JSON.stringify(o);
+
+            http.open('POST', url, true);
+
+            http.onreadystatechange = function () {
+                if (http.readyState == 4 && http.status == 200) {
+
+                    document.getElementById("results").innerHTML += "Send Datapoints:\n\n" + http.responseText + "\n\n\n";
+
+                    //alert(http.responseText);
+
+                }
+            }
+
+            http.send(payload);
+
+        }
+
+        function fetch() {
+
+            var device_id = prompt("enter device_id", "541f284102554d1897bbe4ac60fc1d84");
+
+            if (device_id == null) {
+
+                alert("you must enter device id");
+                return;
+
+            }
+
+            var limit = prompt("enter limit", 3);
+
+            if (limit == null)
+                limit = 3;
+
+            var offset = prompt("enter offset", 0);
+
+            if (offset == null)
+                offset = 0;
+
+            var start = prompt("enter start-time", "2021-07-31T22:38:39Z");
+
+            var end = prompt("enter end-time", "2022-07-31T22:38:39Z");
+
+            ///api/walk/fetch?device_id=541f284102554d1897bbe4ac60fc1d84&limit=10&offset=1&starttime=2021-07-31T22:38:39Z&endtime=2022-07-31T22:38:39Z
+
+            var http = new XMLHttpRequest();
+
+            var url = location.origin + "/api/walk/fetch?device_id=" + device_id + "&limit=" + limit + "&offset=" + offset;
+
+            if (start !== null)
+                url += "&starttime=" + start;
+
+            if (end !== null)
+                url += "&endtime=" + end;
+
+            http.open('GET', url, false);
+
+            http.setRequestHeader('x-api-key', 'PMAK-6096e117cd2e3500310e2835-39c18d49e9bc2473169b4a4dfe022a9324');
+
+            http.onreadystatechange = function () {
+                if (http.readyState == 4 && http.status == 200) {
+
+                    document.getElementById("results").innerHTML += url + "\n\n" + http.responseText + "\n\n\n";
+
+                    //alert(http.responseText);
+
+                }
+            }
+
+            http.send();
+
+        }
+
+    </script>
+
+
+
+</body>
+</html>
