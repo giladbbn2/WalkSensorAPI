@@ -148,9 +148,16 @@ For our best candidates we will have to do load testing or at least get estimate
 
 Based on the exercise I was given our datapoints are in a time-series and immutable. Our data is not relational in nature.
 Because we need to fetch the datapoints sorted by distance and NOT by datetime, we need to define an index.
-A well-known, with a very large community DB capable of holding vast amounts of records is MongoDB, which also has an out-of-the-box sharding and replication mechanisms.
+The fact that our data is in a time-series reduced the relational DBs, which can't operate on billions of records anyway.
+
+Possible candidates were: mongodb, sqlite, aws s3 athena, aws s3 select, presto on aws s3.
+
+Less popular candidates: mysql ndb, riak, druid, influxdb, aiven
+
+A well-known, with a very large community DB capable of holding vast amounts of records is mongodb, which also has an out-of-the-box sharding and replication mechanisms.
 It is also provided as a managed solution on major cloud providers and it is rising in popularity, so it won't become obselete any time soon.
-Benchmarks show it is very fast for inserts compared with sql-like solutions, but they also state MongoDB is not very fast for reads when compared to other solutions.
-For the sole purpose of this exercise MongoDB was chosen as a good DB solution, but in reality I would load test myself and won't rely only on benchmarks.
-Moreover, I will understand the product demands in much more detail (like the questions I wrote above) and come up with several candidates that I would test myself.
-Then, after taking into account all aspects written above (capabilities and restrictions, community, extendibility), I will be able to suggest the best candidate suited for our needs.
+Benchmarks show it is very fast for inserts compared with sql-like solutions, but they also state mongodb is not very fast for reads when compared to other solutions.
+For the sole purpose of this exercise mongodb was chosen as a good DB solution, but in reality we would load test ourselves and won't rely only on benchmarks.
+Moreover, we will understand the product demands in much more detail (like the questions I wrote above) and come up with several candidates that we would test further.
+Then, after taking into account all aspects written above (capabilities and restrictions, community, extendibility), we will be able to suggest the best candidate suited for our needs.
+
