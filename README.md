@@ -81,7 +81,7 @@ the indexes allow intersections? what are the restrictions of these indexes?
 2. Data structures - relational tables (sql-like), key-value (redis, memcache), sets and sorted sets (redis),
 graph relationships (neo4j).
 
-3. Optimal storage media - redis (ram), redis on flash (ram + ssd), sql-like (ram + ssd + hdd), presto (object)
+3. Optimal storage media - redis (ram), redis on flash (ram + ssd), classic sql-like (ram + ssd + hdd), presto (object)
 
 4. General purpose, versatility - suitable for OLTP, OLAP or both? time-series AND relational?
 
