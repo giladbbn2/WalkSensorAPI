@@ -8,6 +8,7 @@ The db is called "WalkSensor", having a collection called "sensor".
 This is a regular collection and not a time series collection.
 
 The document structure is:
+~~~
 {
 	_id: ObjectId("..."),
 	device_id: "541f284102554d1897bbe4ac60fc1d84",
@@ -15,7 +16,7 @@ The document structure is:
 	endTime: "2021-07-31T22:38:40.000+00:00",
 	distance: 78
 }
-
+~~~
 For performance I've created a compound index: [device_id: 1, distance: -1] 
 
 
