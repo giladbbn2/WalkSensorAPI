@@ -130,6 +130,7 @@ __Extendibility:__
 
 8. Strictness of data structure - documents vs sql tables
 
+
 In addition to defining the different aspects of comparison between DBs we also must define our product and technology needs.
 I listed a partial list of question we should be asking ourselves:
 1. How many clients will request our servers? Get estimated rates
