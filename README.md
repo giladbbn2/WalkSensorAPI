@@ -56,9 +56,9 @@ dotnet5 sdk:
 
 https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#2004
 
-__IMPORTANT NOTICE:__ After executing "docker-compose up" for the first time, MongoDB Compass was used
+__IMPORTANT NOTICE: After executing "docker-compose up" for the first time, MongoDB Compass was used
 to connect to the db server (listening on {IP}:27017) and set up a new DB with the name 
-"WalkSensor" with a collection called "sensor".
+"WalkSensor" with a collection called "sensor".__
 
 For testing purposes a simple html page is served at http://{IP}
 
