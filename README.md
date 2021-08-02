@@ -131,7 +131,7 @@ __Extendibility:__
 8. Strictness of data structure - documents vs sql tables
 
 In addition to defining the different aspects of comparison between DBs we also must define our product and technology needs.
-I listed a partial list of questions we should be asking ourselves (from tech point of view):
+I created a partial list of questions we should be asking ourselves (from tech point of view):
 1. How many clients will request our servers? Get estimated rates
 2. Are we legally obligated to use a cloud provider? Data ingress/outgress has additional costs.
 3. Do we have a budget for a managed db solution? What is the risk? what is the SLA?
