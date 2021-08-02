@@ -45,10 +45,15 @@ __HOW DO I RUN THIS:__
 
 For the purpose of testing a fresh vm with ubuntu 20.04 was created, for which ufw was 
 disabled. docker was installed using the convenience script here:
+
 https://get.docker.com/
+
 docker compose:
+
 https://docs.docker.com/compose/install/
+
 dotnet5 sdk:
+
 https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#2004
 
 __IMPORTANT:__ After executing "docker-compose up" for the first time, MongoDB Compass was used
