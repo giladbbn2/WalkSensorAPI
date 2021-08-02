@@ -118,9 +118,9 @@ __Extendibility:__
 
 2. Has working IDE
 
-3. Affinity to ML tools
+3. Easy integrations to ML tools
 
-4. High Availability out-of-the-box tools for scaling, replication, sharding and routing
+4. High Availability out-of-the-box simple tools for scaling, replication, sharding and routing
 
 5. Available as a managed solution on major cloud providers (at what cost?)
 
@@ -130,8 +130,8 @@ __Extendibility:__
 
 8. Strictness of data structure - documents vs sql tables
 
-
-In order to choose wisely we have to ask a lot of questions like:
+In addition to defining the different aspects of comparison between DBs we also must define our product and technology needs.
+I listed a partial list of question we should be asking ourselves:
 1. How many clients will request our servers? Get estimated rates
 2. Are we legally obligated to use a cloud provider? Data ingress/outgress has additional costs.
 3. Do we have a budget for a managed db solution? What is the risk? what is the SLA?
@@ -142,6 +142,8 @@ In order to choose wisely we have to ask a lot of questions like:
 8. Is the data mostly immutable?
 9. Can we define the frequent questions our clients will ask in order to provide a better performing algorithm?
 For instance, we can save aggregations of highly-granular time ranges (weeks, months). i.e. should we save datapoints to S3 or to MongoDB?
+
+
 
 For our best candidates we will have to do load testing or at least get estimates for:
 1. minimum cpu/ram requirements
