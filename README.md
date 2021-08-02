@@ -41,7 +41,7 @@ transmitted data and for authentication of the sender. It is also possible to
 use a public-private key scheme for both as well.
 
 
-__Testing:__
+__HOW DO I RUN THIS:__
 
 For the purpose of testing a fresh vm with ubuntu 20.04 was created, for which ufw was 
 disabled. docker was installed using the convenience script here:
@@ -51,7 +51,7 @@ https://docs.docker.com/compose/install/
 dotnet5 sdk:
 https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#2004
 
-After executing "docker-compose up" for the first time, MongoDB Compass was used
+__IMPORTANT:__ After executing "docker-compose up" for the first time, MongoDB Compass was used
 to connect to the db server (listening on {IP}:27017) and set up a new DB with the name 
 "WalkSensor" with a collection called "sensor".
 
