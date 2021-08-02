@@ -145,9 +145,7 @@ I listed a partial list of questions we should be asking ourselves:
 9. Can we define the frequent questions our clients will ask in order to provide a better performing algorithm?
 For instance, we can save aggregations of highly-granular time ranges (weeks, months). i.e. should we save datapoints to S3 or to MongoDB?
 
-
-
-For our best candidates we will have to do load testing or at least get estimates for:
+For our best candidates we will have to do load testing or at least get estimates for (partial list):
 1. minimum cpu/ram requirements
 2. max insert rate
 3. concurrency cpu load
