@@ -41,7 +41,7 @@ transmitted data and for authentication of the sender. It is also possible to
 use a public-private key scheme for both as well.
 
 
-__HOW DO I RUN THIS:__
+__HOW DID I RUN THIS:__
 
 For the purpose of testing a fresh vm with ubuntu 20.04 was created, for which ufw was 
 disabled. docker was installed using the convenience script here:
